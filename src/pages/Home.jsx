@@ -5,6 +5,7 @@ import "../assets/css/Home.css";
 import VariableProximity from "../components/react-bits/VariableProximity";
 import CatSpinner from "../components/CatSpinner";
 import CatFact from "../components/CatFact";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -134,6 +135,7 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
+        <Footer />
       </section>
     </div>
   );
