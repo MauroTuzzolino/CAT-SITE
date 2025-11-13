@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Modal, ProgressBar, Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/CatQuiz.css";
+import DomeGallery from "../components/react-bits/DomeGallery";
 
 const questionsPool = [
   {
@@ -454,18 +455,11 @@ const CatQuiz = () => {
 
     return (
       <div className="quiz-intro-screen">
-        <div className="bg-fade-container">
-          {catImages.map((img, i) => (
-            <div
-              key={i}
-              className="fade-bg"
-              style={{
-                backgroundImage: `url(${img})`,
-                animationDelay: `${i * 3}s`,
-              }}
-            ></div>
-          ))}
+        <div className="dome-background">
+          <DomeGallery grayscale={false} />
         </div>
+        {/* Overlay trasparente che blocca tutti i click */}
+        <div className="click-blocker"></div>
 
         <div className="intro-box text-center">
           <h1 className="fw-bold mb-4">🐱 Cat Personality Quiz</h1>
