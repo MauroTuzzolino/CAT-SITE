@@ -1,0 +1,124 @@
+/* --- Forza il contenitore del modal a mostrare elementi fuori bordo --- */
+.cat-modal .modal-dialog,
+.cat-modal .modal-content {
+  overflow: visible !important;
+}
+
+/* --- Contenitore principale del modal --- */
+.cat-modal .modal-content {
+  position: relative;
+  border: 3px solid #8c4506;
+  border-radius: 25px;
+  background: linear-gradient(180deg, #fae8c7, #ffe0d3);
+  box-shadow: 0 6px 20px rgba(255, 211, 182, 0.4);
+  padding-top: 2rem;
+}
+
+/* --- Wrapper per orecchie e coda --- */
+.cat-modal-wrapper {
+  position: relative;
+}
+
+/* --- Orecchie del modal --- */
+.cat-modal-wrapper .cat-ears::before,
+.cat-modal-wrapper .cat-ears::after {
+  content: "";
+  position: absolute;
+  top: -60px;
+  width: 60px;
+  height: 60px;
+  background: #ffe4b6;
+  border: 3px solid #8c4506;
+  border-radius: 50% 50% 0 0;
+  z-index: 10;
+  transition: transform 0.25s ease-in-out;
+}
+
+.cat-modal-wrapper .cat-ears::before {
+  left: 40px;
+  transform: rotate(45deg);
+}
+
+.cat-modal-wrapper .cat-ears::after {
+  right: 40px;
+  transform: rotate(-45deg);
+}
+
+/* Wiggle animazione delle orecchie */
+.cat-modal-wrapper:hover .cat-ears::before {
+  transform: rotate(35deg) translateY(-4px);
+}
+.cat-modal-wrapper:hover .cat-ears::after {
+  transform: rotate(-35deg) translateY(-4px);
+}
+
+/* --- Coda del gatto --- */
+.cat-modal-wrapper::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: 80px;
+  width: 50px;
+  height: 90px;
+  background: #ffe4b6;
+  border: 3px solid #8c4506;
+  border-radius: 25px 25px 50% 50%;
+  transform: rotate(25deg);
+  box-shadow: 0 4px 8px rgba(209, 123, 136, 0.4);
+  z-index: 10;
+}
+
+/* --- Header e titolo --- */
+.cat-modal .modal-header {
+  border-bottom: 2px solid #8c4506;
+  background-color: #ffd58b;
+  border-radius: 20px 20px 0 0;
+}
+
+.cat-modal .modal-title {
+  color: #d1887b;
+  font-family: "Comic Sans MS", cursive;
+  font-weight: bold;
+}
+
+/* --- Corpo del modal --- */
+.cat-modal .modal-body {
+  text-align: center;
+  color: #444;
+}
+
+.cat-modal .modal-body img {
+  max-height: 250px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid #8c4506;
+  margin-bottom: 1rem;
+}
+
+/* --- Link Wikipedia --- */
+.cat-modal a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #d1887b;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cat-modal a:hover {
+  color: #c7523d;
+}
+
+/* --- Responsive dimensioni --- */
+@media (min-width: 768px) {
+  .cat-modal .modal-dialog {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cat-modal .modal-dialog {
+    margin: 1rem;
+  }
+}

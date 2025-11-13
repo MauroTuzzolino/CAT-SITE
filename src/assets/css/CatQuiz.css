@@ -1,0 +1,508 @@
+/* === INTRO SCREEN CON BACKGROUND A DISSOLVENZA === */
+.quiz-intro-screen {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #0a0a0f 25%, #000 90%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  border: #0a0a0f 10px solid;
+}
+
+/* Contenitore immagini con dissolvenza */
+.bg-fade-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.fade-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fadeSlideshow 30s linear infinite;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Animazione dissolvenza */
+@keyframes fadeSlideshow {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Ritardi progressivi per le immagini */
+.fade-bg:nth-child(1) {
+  animation-delay: 0s;
+}
+.fade-bg:nth-child(2) {
+  animation-delay: 3s;
+}
+.fade-bg:nth-child(3) {
+  animation-delay: 6s;
+}
+.fade-bg:nth-child(4) {
+  animation-delay: 9s;
+}
+.fade-bg:nth-child(5) {
+  animation-delay: 12s;
+}
+.fade-bg:nth-child(6) {
+  animation-delay: 15s;
+}
+.fade-bg:nth-child(7) {
+  animation-delay: 18s;
+}
+.fade-bg:nth-child(8) {
+  animation-delay: 21s;
+}
+.fade-bg:nth-child(9) {
+  animation-delay: 24s;
+}
+.fade-bg:nth-child(10) {
+  animation-delay: 27s;
+}
+
+/* Box centrale */
+.intro-box {
+  position: relative;
+  z-index: 10;
+  background: rgba(20, 20, 30, 0.85);
+  backdrop-filter: blur(10px);
+  border: 3px solid rgba(255, 200, 87, 0.8);
+  border-radius: 24px;
+  padding: 60px 40px;
+  width: 380px;
+  text-align: center;
+  box-shadow: 0 0 35px rgba(255, 200, 87, 0.35);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.intro-box h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffc857, #fff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+.intro-box p {
+  color: #ddd;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.intro-box button {
+  transition: all 0.3s ease;
+}
+.intro-box button:hover {
+  transform: scale(1.08);
+}
+
+/* Animazione comparsa intro box */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === QUIZ ACTIVE PAGE === */
+.quiz-container {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #101018 20%, #000 100%);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.quiz-card {
+  background: rgba(20, 20, 30, 0.85);
+  border: 2px solid rgba(255, 200, 87, 0.7);
+  border-radius: 24px;
+  padding: 50px 60px;
+  max-width: 700px;
+  width: 90%;
+  box-shadow: 0 0 35px rgba(255, 200, 87, 0.25);
+  position: relative;
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.question-text {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+/* === TIMER BAR + PAW === */
+.timer-bar-wrapper {
+  position: relative;
+  width: 100%;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.timer-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ffc857, #ff9f1c);
+  border-radius: 8px;
+  transition: width 1s linear;
+  position: relative;
+}
+
+.paw-emoji {
+  position: absolute;
+  top: -28px;
+  font-size: 1.4rem;
+  transition: left 1s linear;
+  filter: drop-shadow(0 0 4px #ffc857);
+}
+
+/* === BUTTONS === */
+.option-btn {
+  font-size: 1.1rem;
+  padding: 14px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
+}
+
+.option-btn:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Risposta selezionata */
+.option-btn.selected {
+  background: linear-gradient(90deg, #ffc857, #ff9f1c);
+  color: #000;
+  font-weight: 600;
+  border: 1px solid #ffcf5c;
+  box-shadow: 0 0 15px rgba(255, 200, 87, 0.4);
+  transform: scale(1.03);
+}
+
+/* Effetto click */
+.option-btn:active {
+  transform: scale(0.98);
+  filter: brightness(0.9);
+}
+
+.next-btn {
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 12px 30px;
+  background: linear-gradient(90deg, #ffb347, #ff9f1c);
+  border: none;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 200, 87, 0.4);
+}
+
+/* === SLIDE + FADE EFFECT === */
+.question-slide {
+  animation: slideIn 0.6s ease both;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* === RISULTATO FINALE === */
+.result-cat-img {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255, 200, 87, 0.4);
+  transition: transform 0.5s ease;
+}
+.result-cat-img:hover {
+  transform: scale(1.05);
+}
+
+/* Fade generici */
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+.fade-in-delay {
+  animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === CUSTOM LEAVE MODAL === */
+.leave-modal .modal-content {
+  background: rgba(15, 15, 25, 0.9);
+  border: 2px solid rgba(255, 200, 87, 0.6);
+  border-radius: 20px;
+  color: #fff;
+  box-shadow: 0 0 25px rgba(255, 200, 87, 0.25);
+  backdrop-filter: blur(10px);
+  padding: 40px 30px;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.leave-modal .modal-header,
+.leave-modal .modal-footer {
+  border: none !important;
+}
+
+.custom-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-icon {
+  font-size: 3rem;
+  filter: drop-shadow(0 0 8px rgba(255, 200, 87, 0.5));
+}
+
+.modal-text {
+  font-size: 1rem;
+  color: #ddd;
+  opacity: 0.9;
+}
+
+.leave-modal .btn-outline-light {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  transition: all 0.25s ease;
+}
+
+.leave-modal .btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.leave-modal .btn-danger {
+  background: linear-gradient(90deg, #ff5757, #b91d1d);
+  border: none;
+  transition: all 0.25s ease;
+}
+
+.leave-modal .btn-danger:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 87, 87, 0.4);
+}
+
+/* === QUIT / ABANDON SCREEN === */
+.quit-screen {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #101018 20%, #000 100%);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.quit-card {
+  background: rgba(20, 20, 30, 0.85);
+  border: 2px solid rgba(255, 200, 87, 0.7);
+  border-radius: 24px;
+  padding: 60px 40px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 0 35px rgba(255, 200, 87, 0.25);
+  text-align: center;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.quit-card h1 {
+  font-size: 2rem;
+  background: linear-gradient(45deg, #ffc857, #fff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.quit-card p {
+  color: #ddd;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.quit-card button {
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-weight: 600;
+  color: #000;
+  background: linear-gradient(90deg, #ffc857, #ff9f1c);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.quit-card button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 200, 87, 0.4);
+}
+
+/* === RESULT SCREEN === */
+.result-screen {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #101018 20%, #000 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.result-card {
+  background: rgba(20, 20, 30, 0.9);
+  border: 2px solid rgba(255, 200, 87, 0.8);
+  border-radius: 24px;
+  padding: 60px 40px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 0 40px rgba(255, 200, 87, 0.25);
+  text-align: center;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.result-header h2 {
+  font-size: 2.4rem;
+  background: linear-gradient(45deg, #ffc857, #fff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+.result-header .subtext {
+  font-size: 1.1rem;
+  color: #ddd;
+  opacity: 0.9;
+}
+
+.result-img {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 200, 87, 0.8);
+  box-shadow: 0 0 25px rgba(255, 200, 87, 0.3);
+}
+
+.result-text {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  line-height: 1.5;
+  color: #eee;
+}
+
+.result-buttons .btn-warning {
+  background: linear-gradient(90deg, #ffc857, #ff9f1c);
+  border: none;
+  color: #000;
+  padding: 12px 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.result-buttons .btn-warning:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 200, 87, 0.4);
+}
+
+.result-buttons .btn-outline-light {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  background: transparent;
+  padding: 12px 30px;
+  transition: all 0.3s ease;
+}
+
+.result-buttons .btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.stats-section {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.stats-heading {
+  font-size: 1.1rem;
+  color: #ffc857;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stats-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stats-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ccc;
+}
+
+.stats-item .cat-name {
+  font-weight: 500;
+}
+
+.stats-item .cat-score {
+  font-weight: 700;
+  color: #fff;
+}

@@ -1,0 +1,110 @@
+/* --- Wrapper esterno per gestire orecchie e spazio --- */
+.cat-card-outer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 2.5rem; /* lascia spazio per le orecchie sopra */
+}
+
+/* --- Card principale --- */
+.cat-card {
+  position: relative;
+  width: 100%;
+  height: 420px; /* altezza uniforme per tutte le card */
+  border: 3px solid #8c4506;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #fff8f0, #ffede4);
+  box-shadow: 0 6px 14px rgba(255, 211, 182, 0.4);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: visible; /* consente alle orecchie di uscire */
+}
+
+.cat-card:hover {
+  transform: translateY(-5px);
+}
+
+/* --- Orecchie del gatto --- */
+.cat-ears::before,
+.cat-ears::after {
+  content: "";
+  position: absolute;
+  top: -25px;
+  width: 60px;
+  height: 60px;
+  background: #ffe4b6;
+  border: 3px solid #8c4506;
+  border-radius: 50% 50% 0 0;
+  z-index: 2;
+  transition: transform 0.25s ease-in-out;
+}
+
+.cat-ears::before {
+  left: 15px;
+  transform: rotate(-45deg);
+}
+
+.cat-ears::after {
+  right: 15px;
+  transform: rotate(45deg);
+}
+
+/* --- Effetto "wiggle" delle orecchie al passaggio del mouse --- */
+.cat-card-outer:hover .cat-ears::before {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.cat-card-outer:hover .cat-ears::after {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+/* --- Immagine uniforme --- */
+.cat-img {
+  width: 100%;
+  height: 180px; /* altezza fissa per tutte le immagini */
+  object-fit: cover; /* ritaglia senza deformare */
+  border-radius: 15px 15px 0 0;
+  border-bottom: 2px solid #8c4506;
+}
+
+/* --- Corpo della card --- */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.cat-title {
+  font-family: "Comic Sans MS", cursive;
+  color: #d1967b;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  flex-grow: 1;
+  font-size: 0.9rem;
+  color: #555;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Bottone personalizzato --- */
+.btn-cat {
+  background-color: #d1967b;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem 1.2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-cat:hover {
+  background-color: #cd7f5b;
+}

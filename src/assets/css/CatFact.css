@@ -1,0 +1,38 @@
+.cat-fact-section {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  min-height: 80vh;
+  overflow: hidden;
+  padding: 4rem 0;
+  position: relative;
+}
+
+.cat-fact-text {
+  max-width: 550px;
+  font-style: italic;
+  color: #f1f1f1;
+}
+
+.thought-bubble {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border-radius: 1.5rem;
+  display: inline-block;
+  max-width: 260px;
+  position: absolute;
+  top: 5%;
+  right: 15%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+}
+
+.thought-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  right: 40px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.9);
+  transform: rotate(15deg);
+}

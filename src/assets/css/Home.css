@@ -1,0 +1,265 @@
+.home-page {
+  min-height: 100vh;
+  background-color: #0d0d0d;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* === HERO SECTION === */
+.hero-section {
+  background: url("https://wallpapers-clan.com/wp-content/uploads/2024/06/cute-cat-peeking-over-edge-desktop-wallpaper-preview.jpg") center/cover no-repeat;
+  height: 95vh;
+  position: relative;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.variable-proximity-demo {
+  position: relative;
+  z-index: 2;
+  font-size: 4.5rem;
+}
+
+.hero-section p {
+  position: relative;
+  z-index: 2;
+}
+
+/* === ABOUT SECTION === */
+.about-section {
+  background-color: #1b1b1b;
+  color: #eaeaea;
+}
+
+/* === INFO SECTION (DISCOVER) === */
+.info-section-light {
+  position: relative;
+  color: #333;
+  overflow: hidden;
+  padding-bottom: 6rem;
+  padding-top: 6rem;
+}
+
+.info-section-light::before {
+  content: "🐾";
+  position: absolute;
+  font-size: 6rem;
+  opacity: 0.07;
+  top: 10%;
+  left: 5%;
+  transform: rotate(-15deg);
+  color: #333;
+}
+
+.info-section-light::after {
+  content: "🐾";
+  position: absolute;
+  font-size: 7rem;
+  opacity: 0.07;
+  bottom: 10%;
+  right: 10%;
+  transform: rotate(25deg);
+  color: #333;
+}
+
+.info-section-light h2 {
+  color: #2b2b2b;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+/* === QUIZ INTERACTIVE SECTION === */
+.quiz-interactive {
+  position: relative;
+  overflow: hidden;
+  min-height: 55vh;
+}
+
+.quiz-text {
+  text-align: left;
+  color: #2b2b2b;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.quiz-text h2 {
+  font-size: 2.3rem;
+  color: #c18f3d;
+  text-shadow: 0 2px 8px rgba(207, 160, 70, 0.2);
+}
+
+.quiz-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Bottone reimportato per continuità */
+.quiz-cta-btn {
+  border-radius: 30px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  border: none;
+  background: linear-gradient(90deg, #cfa046, #e0b85a);
+  color: #1b1b1b;
+  transition: all 0.3s ease;
+}
+
+.quiz-cta-btn:hover {
+  background: linear-gradient(90deg, #e0b85a, #cfa046);
+  box-shadow: 0 0 20px rgba(207, 160, 70, 0.3);
+}
+
+/* === IMMAGINE INTERATTIVA === */
+.quiz-visual {
+  text-align: center;
+  position: relative;
+}
+
+.quiz-visual img {
+  max-width: 80%;
+  transform: translateY(0px);
+  transition: transform 0.8s ease-out;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Effetto di “fluttuazione” del gatto */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* === Effetto scroll parallax === */
+@media (prefers-reduced-motion: no-preference) {
+  .quiz-interactive {
+    background-attachment: fixed;
+  }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .quiz-text {
+    text-align: center;
+  }
+
+  .quiz-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .quiz-visual img {
+    max-width: 65%;
+  }
+}
+
+/* === CARD OPTIONS (BREEDS + WILD FELINES) === */
+.cat-card-option {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 40px 25px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  border: 2px solid transparent;
+}
+
+.cat-card-option h4 {
+  font-weight: 600;
+  margin-top: 10px;
+  font-size: 1.4rem;
+}
+
+.cat-card-option p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.cat-card-option .emoji {
+  font-size: 3rem;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.cat-card-option:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cat-card-option:hover .emoji {
+  transform: scale(1.15);
+}
+
+/* Varianti */
+.cat-card-option.light {
+  background: linear-gradient(145deg, #fff, #f9f9f9);
+  border-color: #e2e2e2;
+}
+
+.cat-card-option.dark {
+  background: linear-gradient(145deg, #1c1c1c, #2c2c2c);
+  color: #f5f5f5;
+  border-color: #2c2c2c;
+}
+
+.cat-card-option.dark p {
+  color: #dcdcdc;
+}
+
+.cat-card-option.cosmic {
+  background: linear-gradient(145deg, #0f0c29, #302b63, #24243e);
+  color: #e0e8ff;
+  border-color: rgba(173, 216, 230, 0.2);
+}
+
+.cat-card-option.cosmic p {
+  color: #dcdcdc;
+}
+
+/* === HOVER GLOW EFFECT === */
+.cat-card-option.light:hover {
+  border-color: #cfa046;
+  box-shadow: 0 0 25px rgba(207, 160, 70, 0.25);
+}
+
+.cat-card-option.dark:hover {
+  border-color: #cfa046;
+  box-shadow: 0 0 25px rgba(207, 160, 70, 0.3);
+}
+
+.cat-card-option.cosmic:hover {
+  border-color: #cfa046;
+  box-shadow: 0 0 25px rgba(207, 160, 70, 0.3);
+}
+
+/* === RESPONSIVE TWEAKS === */
+@media (max-width: 768px) {
+  .variable-proximity-demo {
+    font-size: 2.8rem;
+  }
+
+  .info-section-light {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .cat-card-option {
+    padding: 30px 20px;
+  }
+}
