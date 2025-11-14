@@ -263,3 +263,10 @@
     padding: 30px 20px;
   }
 }
+
+/* === NAVBAR === */
+.nav-sticky {
+  position: relative;
+  width: 100%;
+  z-index: 9999;
+}

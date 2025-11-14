@@ -6,12 +6,24 @@ import VariableProximity from "../components/react-bits/VariableProximity";
 import CatSpinner from "../components/CatSpinner";
 import CatFact from "../components/CatFact";
 import Footer from "../components/Footer";
+import PillNav from "../components/react-bits/PillNav";
 
 const Home = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const containerRef = useRef(null);
+  const navRef = useRef(null);
+  const sentinelRef = useRef(null);
+
+  const items = [
+    { label: "Home", href: "#home" },
+    { label: "Facts", href: "#facts" },
+    { label: "Discover", href: "#discover" },
+    { label: "About", href: "#about" },
+  ];
+
+  const logo = "https://png.pngtree.com/png-clipart/20220404/original/pngtree-white-cat-png-image_7515283.png";
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -31,8 +43,14 @@ const Home = () => {
 
   return (
     <div className="home-page">
+      <div className="fixed-top">
+        <div className="d-flex justify-content-center">
+          <PillNav items={items} logo={logo} />
+        </div>
+      </div>
+
       {/* HERO SECTION */}
-      <section className="hero-section text-center text-light d-flex flex-column justify-content-center align-items-end">
+      <section className="hero-section text-center text-light d-flex flex-column justify-content-center align-items-end" id="home">
         <div ref={containerRef} className="proximity-wrapper" style={{ position: "relative" }}>
           <VariableProximity
             label={" Discover the World of Cats"}
@@ -48,10 +66,12 @@ const Home = () => {
       </section>
 
       {/* CAT FACT SECTION */}
-      <CatFact />
+      <section id="facts">
+        <CatFact />
+      </section>
 
       {/* DISCOVER SECTION */}
-      <section className="info-section-light py-5 bg-light">
+      <section className="info-section-light py-5 bg-light" id="discover">
         <Container>
           <Row className="justify-content-center text-center mb-5">
             <Col lg={8}>
@@ -120,7 +140,7 @@ const Home = () => {
       </section>
 
       {/* ABOUT SECTION */}
-      <section className="about-section py-5">
+      <section className="about-section py-5" id="about">
         <Container>
           <Row className="align-items-center">
             <Col md={6} className="mb-4 mb-md-0">
