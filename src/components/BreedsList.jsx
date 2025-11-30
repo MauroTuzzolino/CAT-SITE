@@ -48,7 +48,6 @@ export default function BreedsList() {
     loadData();
   }, []);
 
-  // ricerca
   const handleSearch = (query) => {
     const lower = query.toLowerCase();
     const results = breeds.filter((breed) => breed.name.toLowerCase().includes(lower));
@@ -66,25 +65,31 @@ export default function BreedsList() {
 
   return (
     <Container className="mt-4">
-      <div onClick={() => navigate("/")} className="d-flex justify-content-center align-items-center">
-        <div className="mt-4">
-          <CatTitle title={"CAT BREEDS"} />
+      {/* TITOLO + ANIMAZIONE RESPONSIVI */}
+      <div onClick={() => navigate("/")} className="d-flex flex-wrap justify-content-center align-items-center text-center mb-4" style={{ cursor: "pointer" }}>
+        <div className="mt-2 mx-2">
+          <CatTitle title="CAT BREEDS" />
         </div>
 
-        <Lottie animationData={catTitle} loop={true} style={{ width: 150, height: 150 }} />
+        <Lottie
+          animationData={catTitle}
+          loop={true}
+          style={{
+            width: "25vw",
+            maxWidth: "140px",
+            minWidth: "80px",
+          }}
+        />
       </div>
 
       <CatSearchBar onSearch={handleSearch} />
 
-      {/* Lista card */}
+      {/* LISTA CARDS */}
       <Row xs={1} sm={2} md={3} lg={4} className="g-4">
         {filteredBreeds.map((breed) => (
           <Col key={breed.id}>
             <CatCard
-              image={
-                breed.image?.url ||
-                "https://img.freepik.com/premium-vector/404-error-page-with-black-cat-illustrations_343173-27.jpg?semt=ais_hybrid&w=740&q=80"
-              }
+              image={breed.image?.url || "https://img.freepik.com/premium-vector/404-error-page-with-black-cat-illustrations_343173-27.jpg"}
               title={breed.name}
               description={breed.description}
               onClick={() => setSelectedBreed(breed)}
@@ -93,7 +98,7 @@ export default function BreedsList() {
         ))}
       </Row>
 
-      {/* Modal in stile gatto 🐱 */}
+      {/* MODALE */}
       <Modal className="cat-modal" show={!!selectedBreed} onHide={() => setSelectedBreed(null)} centered>
         <div className="cat-modal-wrapper">
           <div className="cat-ears"></div>
@@ -105,13 +110,11 @@ export default function BreedsList() {
               </Modal.Header>
               <Modal.Body>
                 <img
-                  src={
-                    selectedBreed.image?.url ||
-                    "https://img.freepik.com/premium-vector/404-error-page-with-black-cat-illustrations_343173-27.jpg?semt=ais_hybrid&w=740&q=80"
-                  }
+                  src={selectedBreed.image?.url || "https://img.freepik.com/premium-vector/404-error-page-with-black-cat-illustrations_343173-27.jpg"}
                   alt={selectedBreed.name}
                   className="img-fluid rounded mb-3"
                 />
+
                 <p>
                   <strong>Origin:</strong> {selectedBreed.origin}
                 </p>
@@ -119,6 +122,7 @@ export default function BreedsList() {
                   <strong>Temperament:</strong> {selectedBreed.temperament}
                 </p>
                 <p>{selectedBreed.description}</p>
+
                 {selectedBreed.wikipedia_url && (
                   <a href={selectedBreed.wikipedia_url} target="_blank" rel="noopener noreferrer">
                     Learn more on Wikipedia 🐾

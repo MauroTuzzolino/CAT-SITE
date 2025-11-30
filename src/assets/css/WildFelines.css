@@ -11,19 +11,29 @@
   overflow: hidden;
 }
 
-.wild-hero img {
+.wild-hero img,
+.hero-img {
   width: 100%;
   height: 90vh;
   object-fit: cover;
   filter: brightness(70%);
 }
 
+/* Hero responsive per mobile */
+@media (max-width: 576px) {
+  .wild-hero img,
+  .hero-img {
+    height: 55vh;
+  }
+}
+
 .carousel-caption {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 5;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 }
 
 .carousel-caption h1 {
@@ -35,6 +45,25 @@
 .carousel-caption p {
   font-size: 1.3rem;
   color: #fff;
+}
+
+/* Hero text responsive */
+@media (max-width: 768px) {
+  .carousel-caption h1 {
+    font-size: 2.4rem;
+  }
+  .carousel-caption p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-caption {
+    bottom: 18%;
+  }
+  .carousel-caption h1 {
+    font-size: 1.8rem;
+  }
 }
 
 /* === GRID === */
@@ -64,6 +93,7 @@
   transition: transform 0.4s ease;
 }
 
+/* Img scaling hover */
 .wild-card:hover img {
   transform: scale(1.1);
 }
@@ -71,6 +101,13 @@
 .wild-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 25px rgba(255, 215, 0, 0.15);
+}
+
+/* Card responsive */
+@media (max-width: 576px) {
+  .wild-card-img-wrapper {
+    height: 200px;
+  }
 }
 
 /* === MODAL === */
@@ -91,6 +128,15 @@
   color: #000;
 }
 
+/* Modal responsive */
+@media (max-width: 576px) {
+  .wild-modal img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+  }
+}
+
 /* === BACK BUTTON === */
 .back-btn {
   position: absolute;
@@ -108,12 +154,12 @@
   color: #000;
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  .carousel-caption h1 {
-    font-size: 2.3rem;
-  }
-  .carousel-caption p {
-    font-size: 1rem;
+/* Extra safety for mobile */
+@media (max-width: 480px) {
+  .back-btn {
+    top: 12px;
+    left: 12px;
+    font-size: 0.8rem;
+    padding: 4px 8px;
   }
 }

@@ -116,7 +116,7 @@ const Home = () => {
                 </div>
               </Col>
 
-              <Col md={4}>
+              <Col md={4} className="d-none d-xl-block">
                 <div className="cat-card-option cosmic discovery-card-content" onClick={() => navigate("/cat-planet")}>
                   <div className="emoji">🌍</div>
                   <h3>Global Cat Origins</h3>
